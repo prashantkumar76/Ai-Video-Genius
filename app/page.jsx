@@ -339,9 +339,9 @@ export default function HomePage() {
                 </SelectValue>
               </SelectTrigger>
               <SelectContent className="bg-transparent backdrop-blur-xl border-white/20 rounded-xl max-h-60 overflow-y-auto">
-                {getCurrentLanguageOptions().map((lang) => (
+                {getCurrentLanguageOptions().map((lang,index) => (
                   <SelectItem 
-                    key={`${languageType}-${lang.code}`} 
+                    key={`${languageType}-${lang.code}-${index}`}
                     value={lang.code} 
                     className="text-white hover:bg-white/10 rounded-lg text-lg py-3"
                   >
