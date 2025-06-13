@@ -219,17 +219,17 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-ping duration-[3000ms]"></div>
+        <div className="absolute -top-20 -right-20 sm:-top-40 sm:-right-40 w-40 h-40 sm:w-80 sm:h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-20 -left-20 sm:-bottom-40 sm:-left-40 w-40 h-40 sm:w-80 sm:h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-96 sm:h-96 bg-pink-500/10 rounded-full blur-3xl animate-ping duration-[3000ms]"></div>
       </div>
 
-      {/* Floating Particles */}
+      {/* Floating Particles - Reduced for mobile */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-white/20 rounded-full animate-pulse"
+            className="absolute w-1 h-1 sm:w-2 sm:h-2 bg-white/20 rounded-full animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -240,89 +240,90 @@ export default function HomePage() {
         ))}
       </div>
       
-      <div className="relative z-10 p-6 flex flex-col items-center justify-center min-h-screen">
+      <div className="relative z-10 p-4 sm:p-6 flex flex-col items-center justify-center min-h-screen">
 
-      <div className="fixed top-6 right-6 z-50">
+        {/* History Button - Responsive positioning */}
+        <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50">
           <Button
             onClick={handleGoToHistory}
-            className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white border-0 rounded-2xl px-6 py-3 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-emerald-500/25 active:scale-95 group"
+            className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white border-0 rounded-xl sm:rounded-2xl px-3 py-2 sm:px-6 sm:py-3 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-emerald-500/25 active:scale-95 group"
           >
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-1 sm:space-x-2">
               <div className="relative">
-                <History className="h-5 w-5 transition-transform duration-300 group-hover:rotate-12" />
-                <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+                <History className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:rotate-12" />
+                <div className="absolute -top-1 -right-1 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-400 rounded-full animate-pulse"></div>
               </div>
-              <span className="font-semibold text-sm">History</span>
+              <span className="font-semibold text-xs sm:text-sm">History</span>
             </div>
           </Button>
         </div>
         
 
         {/* Main Content */}
-        <div className="text-center mb-12 animate-in fade-in duration-700">
-          <div className="mb-6">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-3xl shadow-2xl mb-6 animate-bounce">
-              <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+        <div className="text-center mb-8 sm:mb-12 animate-in fade-in duration-700">
+          <div className="mb-4 sm:mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl sm:rounded-3xl shadow-2xl mb-4 sm:mb-6 animate-bounce">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </div>
           </div>
-          <h1 className="text-6xl font-black mb-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-in slide-in-from-bottom duration-700 delay-200">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-in slide-in-from-bottom duration-700 delay-200">
             AI Video Genius
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed animate-in slide-in-from-bottom duration-700 delay-400">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed px-4 animate-in slide-in-from-bottom duration-700 delay-400">
             Transform any video URL into intelligent insights with our advanced AI analysis
           </p>
-          <div className="flex items-center justify-center mt-6 space-x-2 animate-in fade-in duration-700 delay-600">
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse delay-100"></div>
-            <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse delay-200"></div>
+          <div className="flex items-center justify-center mt-4 sm:mt-6 space-x-2 animate-in fade-in duration-700 delay-600">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-400 rounded-full animate-pulse delay-100"></div>
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-pink-400 rounded-full animate-pulse delay-200"></div>
           </div>
         </div>
 
         {/* Input Section */}
-        <div className="bg-black/20 backdrop-blur-xl p-8 rounded-3xl shadow-2xl w-full max-w-3xl border border-white/10 animate-in fade-in slide-in-from-bottom duration-700 delay-800">
+        <div className="bg-black/20 backdrop-blur-xl p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-3xl border border-white/10 animate-in fade-in slide-in-from-bottom duration-700 delay-800">
           
           {/* Language Type Selection */}
-          <div className="mb-6">
-            <label className="block text-lg font-semibold text-gray-200 mb-3 flex items-center">
-              <span className="mr-2 text-xl">🌏</span>
-              Choose Language Region
+          <div className="mb-4 sm:mb-6">
+            <label className="block text-base sm:text-lg font-semibold text-gray-200 mb-2 sm:mb-3 flex items-center">
+              <span className="mr-2 text-lg sm:text-xl">🌏</span>
+              <span className="text-sm sm:text-base">Choose Language Region</span>
             </label>
-            <div className="flex space-x-4 mb-4">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 mb-3 sm:mb-4">
               <Button
                 variant={languageType === 'country' ? 'default' : 'ghost'}
-                className={`flex-1 h-12 rounded-xl transition-all duration-300 ${
+                className={`flex-1 h-10 sm:h-12 rounded-lg sm:rounded-xl transition-all duration-300 text-sm sm:text-base ${
                   languageType === 'country' 
                     ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg' 
                     : 'bg-white/5 text-gray-300 hover:bg-white/10'
                 }`}
                 onClick={() => handleLanguageTypeChange('country')}
               >
-                <Globe className="h-4 w-4 mr-2" />
+                <Globe className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                 Country Languages
               </Button>
               <Button
                 variant={languageType === 'indian' ? 'default' : 'ghost'}
-                className={`flex-1 h-12 rounded-xl transition-all duration-300 ${
+                className={`flex-1 h-10 sm:h-12 rounded-lg sm:rounded-xl transition-all duration-300 text-sm sm:text-base ${
                   languageType === 'indian' 
                     ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg' 
                     : 'bg-white/5 text-gray-300 hover:bg-white/10'
                 }`}
                 onClick={() => handleLanguageTypeChange('indian')}
               >
-                <MapPin className="h-4 w-4 mr-2" />
+                <MapPin className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                 Indian Languages
               </Button>
             </div>
           </div>
 
           {/* Language Selection */}
-          <div className="mb-6">
-            <label className="block text-lg font-semibold text-gray-200 mb-3 flex items-center">
-              <span className="mr-2 text-xl">🌐</span>
-              Select Output Language
-              <span className="ml-2 text-sm font-normal text-gray-400">
+          <div className="mb-4 sm:mb-6">
+            <label className="block text-base sm:text-lg font-semibold text-gray-200 mb-2 sm:mb-3 flex items-center">
+              <span className="mr-2 text-lg sm:text-xl">🌐</span>
+              <span className="text-sm sm:text-base">Select Output Language</span>
+              <span className="ml-2 text-xs sm:text-sm font-normal text-gray-400">
                 ({languageType === 'indian' ? 'Indian' : 'Global'} Languages)
               </span>
             </label>
@@ -333,17 +334,17 @@ export default function HomePage() {
                 setSelectedLanguage(value);
               }}
             >
-              <SelectTrigger className="w-full bg-white/5 backdrop-blur-md border-white/20 text-white rounded-2xl h-14 text-lg hover:bg-white/10 transition-all duration-300">
+              <SelectTrigger className="w-full bg-white/5 backdrop-blur-md border-white/20 text-white rounded-xl sm:rounded-2xl h-12 sm:h-14 text-base sm:text-lg hover:bg-white/10 transition-all duration-300">
                 <SelectValue placeholder="Select output language">
                   {getSelectedLanguageName()}
                 </SelectValue>
               </SelectTrigger>
-              <SelectContent className="bg-transparent backdrop-blur-xl border-white/20 rounded-xl max-h-60 overflow-y-auto">
+              <SelectContent className="bg-gray-900/95 backdrop-blur-xl border-white/20 rounded-lg sm:rounded-xl max-h-48 sm:max-h-60 overflow-y-auto">
                 {getCurrentLanguageOptions().map((lang,index) => (
                   <SelectItem 
                     key={`${languageType}-${lang.code}-${index}`}
                     value={lang.code} 
-                    className="text-white hover:bg-white/10 rounded-lg text-lg py-3"
+                    className="text-white hover:bg-white/10 rounded-md sm:rounded-lg text-base sm:text-lg py-2 sm:py-3"
                   >
                     {lang.name}
                   </SelectItem>
@@ -353,17 +354,17 @@ export default function HomePage() {
           </div>
 
           {/* URL Input */}
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
             <div className="relative flex-1">
-              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 z-10">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 z-10">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                 </svg>
               </div>
               <Input
                 type="url"
-                placeholder="Paste your video URL here (YouTube, Vimeo, etc.)"
-                className="w-full h-16 pl-14 pr-6 text-lg bg-white/5 backdrop-blur-md text-white border-white/20 rounded-2xl placeholder:text-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-300 hover:bg-white/10"
+                placeholder="Paste your video URL here..."
+                className="w-full h-12 sm:h-16 pl-12 sm:pl-14 pr-4 sm:pr-6 text-base sm:text-lg bg-white/5 backdrop-blur-md text-white border-white/20 rounded-xl sm:rounded-2xl placeholder:text-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 transition-all duration-300 hover:bg-white/10"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
@@ -372,13 +373,14 @@ export default function HomePage() {
             
             <Button
               disabled={!input.trim() || generating}
-              className="h-16 px-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 font-semibold text-lg"
+              className="h-12 sm:h-16 px-6 sm:px-8 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 font-semibold text-base sm:text-lg whitespace-nowrap"
               onClick={handleClick}
             >
               {generating ? (
                 <div className="flex items-center space-x-2">
-                  <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <span>Analyzing...</span>
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <span className="hidden sm:inline">Analyzing...</span>
+                  <span className="sm:hidden">...</span>
                 </div>
               ) : (
                 <div className="flex items-center space-x-2">
@@ -390,22 +392,22 @@ export default function HomePage() {
           </div>
           
           {!input.trim() && (
-            <div className="mt-6 p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl border border-white/10">
-              <p className="text-gray-300 text-center flex items-center justify-center">
-                <span className="mr-2 text-xl">🎬</span>
-                Ready to unlock insights from your video? Just paste the URL above!
+            <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl sm:rounded-2xl border border-white/10">
+              <p className="text-gray-300 text-center flex items-center justify-center text-sm sm:text-base">
+                <span className="mr-2 text-lg sm:text-xl">🎬</span>
+                <span className="text-center">Ready to unlock insights from your video? Just paste the URL above!</span>
               </p>
             </div>
           )}
 
           {input.trim() && !generating && (
-            <div className="mt-6 p-4 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-2xl border border-green-400/30">
-              <p className="text-green-300 text-center">
+            <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl sm:rounded-2xl border border-green-400/30">
+              <p className="text-green-300 text-center text-sm sm:text-base">
                 <span className="flex items-center justify-center mb-2">
-                  <span className="mr-2 text-xl">🚀</span>
+                  <span className="mr-2 text-lg sm:text-xl">🚀</span>
                   URL detected! Click "Analyze" to get your AI-powered summary.
                 </span>
-                <span className="block text-green-200 text-sm">
+                <span className="block text-green-200 text-xs sm:text-sm">
                   <span className="mr-1">📝</span>
                   Summary will be in: <strong>{getSelectedLanguageName()}</strong>
                 </span>
